@@ -1,0 +1,38 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+}
+
+header .header_wrap {
+  background-color: #26394E;
+}
+
+header .header_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .header_wrap .logo {
+  padding: 10px;
+}
+header .header_wrap .logo .fa-superpowers {
+  color: orange;
+}
+
+header .header_wrap .gnb ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+header .header_wrap .gnb ul li {
+  text-decoration: none;
+  padding: 10px;
+}
+
+header .header_wrap .icon {
+  padding: 10px;
+}
+header .header_wrap .icon .fa {
+  padding: 5px;
+}

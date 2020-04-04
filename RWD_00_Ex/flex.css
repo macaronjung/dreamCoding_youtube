@@ -1,0 +1,78 @@
+.container {
+  background-color: beige;
+  height: 100vh;
+
+  /* container 설정 */
+  display: flex;/* 컨테이너를 플렉스 박스로 지정 */
+
+  flex-direction: row;/* 중심축 수평(기본값) */ 
+  flex-direction: row-reverse;/* 오->왼 */
+
+  flex-direction: column;/* 중심축 수직으로 변경 */
+  flex-direction: column-reverse;/* 아래->위 */
+
+  flex-wrap: nowrap;/* 기본값 : item 한줄로 표시 */
+  flex-wrap: wrap;/* 꽉차면 다음줄로 넘김 */
+  flex-wrap: wrap-reverse;/* 반대순서로 올라옴 */
+
+  flex-flow: column nowrap;/* direction + wrap */
+
+  /* item 설정 */
+  /* direction 과 차이점 : item의 배치는 유지하고 item 위치만 바꿔줌 */
+  justify-content: flex-start; /* item 기본기준점에서 배치시작 */
+  justify-content: flex-end; /* item 반대기준점에서 배치시작 */
+  justify-content: space-around; /* item box를 둘러싸는 spacing 부여(좌우 끝단은 다른 box에 비해 여백이 적음) */
+  justify-content: space-evenly; /* item box를 둘러싸는 spacing 부여(전부 여백 똑같이) */
+  justify-content: space-between; /* item box를 둘러싸는 spacing 부여(좌우끝 화면끝에 붙임) */
+
+  /* 화면 수직축 기준 box 위치 조정 */
+  align-items: center; /* 화면 중앙 */
+  align-items: baseline; /* box 내부 글자 위치에 따라 모든 box의 위치 기준이 정해짐 */
+}
+
+  /* item 배치 순서 지정(flex 지정 후) */
+  .item1 {
+    order: 2;/* 2번째 위치 */
+  }
+  .item2 {
+    order: 1;/* 1번째 위치 */
+  }
+  /* 거의 사용하지는 않음 알고만 있을 것 */
+
+  /* item 크기 확대 지정(화면 크기 조정에 따라) */
+  .item1 {
+    flex-grow: 0;/*container 채우지 않음(기본값)*/
+  }
+  .item2 {
+    flex-grow: 1;/* container 가득 채움 */
+  }
+  .item3 {
+    flex-grow: 2;/* 다른 item에 비해 2배로 채움 */
+  }
+
+  /* item 크기 축소 지정(화면 크기 조정에 따라) */
+  .item1 {
+    flex-shrink: 0;/* 기본값 */
+  }
+  .item2 {
+    flex-grow: 2;/*다른 item에 비해 2배로 줄어듬*/
+  }
+  
+  /*item 공간 차지비율 지정(화면 크기 조정 따라)*/
+  .item1 {
+    flex-basis: 60%;/* 60% 크기로 확대,축소 */
+  }
+  .item2 {
+    flex-basis: 40%;/* 40% 크기로 확대,축소 */
+  }
+
+  /* item 비율 지정(화면 크기 조정 따라) */
+  .item1 {
+    flex: 2 2 auto;/* grow,shrink,basis */
+  }
+
+  /* item 일부 지정(container 상관없이) */
+  .item2 {
+    flex: 2 2 auto;/* grow,shrink,basis */
+    align-self: center;/* 화면 중앙에 위치 */
+  }

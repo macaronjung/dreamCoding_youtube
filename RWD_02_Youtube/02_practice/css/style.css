@@ -86,11 +86,12 @@ header .icons .fa-search {
   width: 100%;
   height: 100%;
   /* 최대 확장 크기 지정 */
-  max-width: 750px;
-  max-height: 350px;
+  max-width: 660px;
+  max-height: 330px;
 }
 
-.info {
+/* 아래 up next 부분 padding 미적용 시키기 */
+body > .info {
   padding: var(--padding);
 }
 
@@ -131,14 +132,14 @@ header .icons .fa-search {
 }
 
 /* action button */
-.actions {
+.info .actions {
   display: flex;
   /* 각자 동등하게 위치해 */
   justify-content: space-around;
   margin: var(--padding) 0;
 }
 
-.actions button {
+.info .actions button {
   display: flex;
   /* 아래로 중심축 잡아 */
   flex-direction: column;
@@ -146,7 +147,7 @@ header .icons .fa-search {
   color: var(--grey-dark-color);
 }
 
-.actions button i {
+.info .actions button i {
   /* 가운데 정렬 시키기 */
   margin: 0 auto;
   /* calc 함수 이용 padding 1/2 값만 주기 */
@@ -154,46 +155,98 @@ header .icons .fa-search {
   font-size: 16px;
 }
 
-.actions button i.active {
+.info .actions button i.active {
   color: var(--blue-color);
 }
 
 /* channel */
-.channel {
+.info .channel {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid var(--grey-dark-color);
-  border-bottom: 1px solid var(--grey-dark-color);
+  border-top: 1px solid var(--grey-light-color);
+  border-bottom: 1px solid var(--grey-light-color);
+  padding: calc(var(--padding) / 2) 0;
 }
 
-.channel .metadata {
+.info .channel .metadata {
   display: flex;
   /* 가운데로 정렬시키기 (info flex때문에 위로 올라가있음) */
   align-items: center;
 }
 
-.channel .metadata .info {
+.info .channel .metadata .info {
   display: flex;
   flex-direction: column;
 }
 
-.channel .metadata img {
+.info .channel .metadata img {
   width: var(--avatar-size);
   height: var(--avatar-size);
   border-radius: 50%;
 }
 
-.channel .metadata .info .name {
+.info .channel .metadata .info .name {
   font-size: var(--font-medium);
+  padding-left: var(--padding);
 }
 
-.channel .metadata .info .subscribers {
+.info .channel .metadata .info .subscribers {
   font-size: var(--font-small);
   color: var(--grey-dark-color);
+  padding-left: var(--padding);
 }
 
-.channel .subscribe {
+.info .channel .subscribe {
   text-transform: uppercase;
   color: var(--red-color);
   font-size: var(--font-medium);
+}
+
+/* upnext */
+.upNext {
+  padding: 0 var(--padding);
+}
+
+.upNext > .title {
+  font-size: var(--font-medium);
+  color: var(--grey-dark-color);
+  margin-bottom: calc(var(--padding) / 2);
+}
+
+.upNext .item {
+  display: flex;
+  margin-top: var(--padding);
+}
+
+/* 각자 비율 나누기 */
+.upNext .item .img {
+  flex: 1 1 35%;
+  margin-right: var(--padding);
+}
+
+/* img 본인 div .img 에서 100% 공간 차지하기 */
+.upNext .item .img img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 위에서 .info 에 공통으로 padding 적용한 것 취소시킴 */
+.upNext .item .info {
+  flex: 1 1 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.upNext .item .info .title {
+  font-size: var(--font-small);
+}
+
+.upNext .item .info .name,
+.upNext .item .info .views {
+  font-size: var(--font-small);
+}
+
+.upNext .item .moreBtn {
+  flex: 1 1 5%;
 }

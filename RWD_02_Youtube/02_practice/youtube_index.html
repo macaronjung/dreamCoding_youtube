@@ -6,6 +6,7 @@
   <title>Youtube Mobile</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'/>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="js/main.js">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -30,7 +31,9 @@
     <video controls src="video/Dreamer.mp4"></video>
   </section>
 
-  <!-- video info -->
+  <!-- info & upnext -->
+  <div class="infoAndUpNext">
+  <!-- info -->
     <section class="info">
       <div class="metadata">
         <ul class="hashtags">
@@ -39,12 +42,13 @@
           <li>#Mike Yung</li>
         </ul>
         <div class="titleAndButton">
-          <span class="title">
+          <!-- js 작동을 위한 clamp 클래스 추가 -->
+          <span class="title clamp">
             Martin Garrix feat. Mike Yung - Dreamer (Official Video) / 
             Clone Coding / Youtube Mobile Website / DreamCoding /
             Front-End developer(begginer) / HTML, CSS, Javascript
           </span>
-          <button class="moreBtn">
+          <button class="moreBtn click">
             <i class="fa fa-caret-down"></i>
           </button>
         </div>
@@ -157,5 +161,7 @@
     </ul>
 
   </section>
+
+</div><!-- infoAndUpNext -->
 </body>
 </html>

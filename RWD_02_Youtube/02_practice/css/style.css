@@ -25,6 +25,24 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Roboto;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+button:focus { 
+  /* :focus -> input 요소에 커서 위치해 
+  선택된 동안의 스타일 지정 */
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: var(--white-color);
+}
+
 /* header */
 header {
   display: flex;
@@ -45,4 +63,137 @@ header .logo i {
 
 header .icons .fa-search {
   margin-right: var(--padding);
+}
+
+/* video player */
+.player {
+  position: sticky; /* position 이용 상단 화면 고정 */
+
+  /* sticky -> top, right, bottom, left 속성이 필수 
+  sticky 박스의 부모 박스가 scroll 박스를 벗어나면 
+  sticky 박스는 다시 일반적인 흐름에 따릅니다*/
+
+  /* fixed 박스는 뷰포트에 고정하지만 
+  sticky 박스는 scroll 박스에 고정합니다. 
+  즉, scroll 박스가 offset 기준 */
+
+  top: 0; /* 기준점 설정 */
+  text-align: center;
+  background-color: var(--black-color);
+}
+/* video 반응형 구현 */
+.player video {
+  width: 100%;
+  height: 100%;
+  /* 최대 확장 크기 지정 */
+  max-width: 750px;
+  max-height: 350px;
+}
+
+.info {
+  padding: var(--padding);
+}
+
+.info .metadata .hashtags {
+  /* hashtags 자체 플렉스로 설정하기(float 그만그만) */
+  display: flex;
+  font-size: var(--font-small);
+  color: var(--blue-color);
+}
+
+.info .metadata .hashtags li {
+  /* hashtags li 간 간격 벌리기(나중에는 더 좋은 방법으로 처리) */
+  margin-right: var(--padding);
+}
+
+.info .metadata .titleAndButton {
+  display: flex;
+}
+
+.info .metadata .titleAndButton .title {
+  font-size: var(--font-medium);
+  /* css line clamp(css로 문자열 자르기) */
+  display: -webkit-box; /* -webkit-box 또는 -webkit-inline-box */
+  -webkit-box-orient: vertical;
+  /* display, -webkit-box-orient 설정해야만 동작 */
+  -webkit-line-clamp: 2; /* 제한할 출력문 줄 수 */
+  overflow: hidden;
+  margin-right: var(--paddding);
+}
+
+.info .metadata .titleAndButton .moreBtn {
+  height: 100%;
+}
+
+.info .views {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+/* action button */
+.actions {
+  display: flex;
+  /* 각자 동등하게 위치해 */
+  justify-content: space-around;
+  margin: var(--padding) 0;
+}
+
+.actions button {
+  display: flex;
+  /* 아래로 중심축 잡아 */
+  flex-direction: column;
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.actions button i {
+  /* 가운데 정렬 시키기 */
+  margin: 0 auto;
+  /* calc 함수 이용 padding 1/2 값만 주기 */
+  margin-bottom: calc(var(--padding) / 2);
+  font-size: 16px;
+}
+
+.actions button i.active {
+  color: var(--blue-color);
+}
+
+/* channel */
+.channel {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--grey-dark-color);
+  border-bottom: 1px solid var(--grey-dark-color);
+}
+
+.channel .metadata {
+  display: flex;
+  /* 가운데로 정렬시키기 (info flex때문에 위로 올라가있음) */
+  align-items: center;
+}
+
+.channel .metadata .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.channel .metadata img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+}
+
+.channel .metadata .info .name {
+  font-size: var(--font-medium);
+}
+
+.channel .metadata .info .subscribers {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.channel .subscribe {
+  text-transform: uppercase;
+  color: var(--red-color);
+  font-size: var(--font-medium);
 }
